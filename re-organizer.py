@@ -5,6 +5,9 @@ import shutil
 path = "D:/Escritorio/Datos de prueba"
 dir_list = os.listdir(path)
 
+photo_type = ["jpg", "jpeg", "png", "bmp", "gif", "heic", "webp"]
+video_type = ["mp4", "avi", "mov", "mkv", "flv", "wmv", "webm", "mpeg", "3gp"]
+
 months_translate = {
     "Jan": "1. Enero",
     "Feb": "2. Febrero",
@@ -44,17 +47,17 @@ for i in dir_list:
             os.mkdir(year_folder)
         if not os.path.isdir(month_folder):
             os.mkdir(month_folder)
-        if file_type in ["jpg", "jpeg", "png", "bmp", "gif", "heic", "webp"]:
+        if file_type in photo_type:
             if not os.path.isdir(picture_folder):
                 os.mkdir(picture_folder)
-        if file_type in ["mp4", "avi", "mov", "mkv", "flv", "wmv", "webm", "mpeg", "3gp"]:
+        if file_type in video_type:
             if not os.path.isdir(video_folder):
                 os.mkdir(video_folder)
 
         # Move files
-        if file_type in ["jpg", "jpeg", "png", "bmp", "gif", "heic", "webp"]:
+        if file_type in photo_type:
             shutil.move(full_path, picture_folder)
-        if file_type in ["mp4", "avi", "mov", "mkv", "flv", "wmv", "webm", "mpeg", "3gp"]:
+        if file_type in video_type:
             shutil.move(full_path, video_folder)
                 
         
